@@ -1,3 +1,23 @@
-H1 {
-    color:blue
+body {
+    margin: 0%;
+}
+
+.shows-section__container {
+    display: flex;
+    width: 100vw;
+}
+
+.shows-section__show-container {
+    width: 50vw;
+    height: 100vh;
+}
+
+.shows-section__show-container img {
+    max-width: 80%;
+    height: auto;
+}
+
+.shows-section__show-cover {
+    max-width: 50%;
+    height: auto;
 }
