@@ -1,0 +1,32 @@
+.episode-info__container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin-left: 30%;
+    padding-bottom: 30px;
+    width: 40%;
+    background-color: #f1f1f1;
+}
+
+.episode-info__group {
+    display: flex;
+}
+
+.episode-info__title {
+    margin-left: 10px;
+}
+
+.episode-group-label {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.episode-info__group-data {
+    margin-left: 5px;
+}
+
+.episode-info__link {
+    color: black;
+    text-decoration: none;
+    font-style: italic;
+}

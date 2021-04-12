@@ -19,10 +19,10 @@ const characterHtml = async id => {
     var bbAppearances = ``;
     var bcsAppearances = ``;
     for (var i = 0; i < character.appearance.length; i++) {
-        bbAppearances += `<a class=character-info__link href="index.html?serie=breaking-bad&season=${character.appearance[i]}">${character.appearance[i]}</a>, `;
+        bbAppearances += `<a class="character-info__link" href="index.html?serie=breaking-bad&season=${character.appearance[i]}">${character.appearance[i]}</a>, `;
     }
     for (var i = 0; i < character.better_call_saul_appearance.length; i++) {
-        bcsAppearances += `<a class=character-info__link href="index.html?serie=better-call-saul&season=${character.better_call_saul_appearance[i]}">${character.better_call_saul_appearance[i]}</a>, `;
+        bcsAppearances += `<a class="character-info__link" href="index.html?serie=better-call-saul&season=${character.better_call_saul_appearance[i]}">${character.better_call_saul_appearance[i]}</a>, `;
     }
     bbAppearances = bbAppearances.substring(0, bbAppearances.length - 2);
     bcsAppearances = bcsAppearances.substring(0, bcsAppearances.length - 2);

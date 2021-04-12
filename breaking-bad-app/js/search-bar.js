@@ -23,14 +23,14 @@ const searchCharacter = async input => {
         response = await fetch(`https://tarea-1-breaking-bad.herokuapp.com/api/characters?name=${input}&limit=10&offset=10`);
         var nextPage = await response.json();
 
-        for (var i = 1; i < 8; i++) {
-            if (nextPage.length !== 0) {
-                characters.push(...nextPage);
-                response = await fetch(`https://tarea-1-breaking-bad.herokuapp.com/api/characters?name=${input}&limit=10&offset=${i}0`);
-                nextPage = await response.json();
-            }
+        while (nextPage.length !== 0) {
+            characters.push(...nextPage);
+            response = await fetch(`https://tarea-1-breaking-bad.herokuapp.com/api/characters?name=${input}&limit=10&offset=${i}0`);
+            nextPage = await response.json();
         }
-        console.log(characters);
+        if (nextPage.length !== 0) {
+            characters.push(...nextPage);
+        }
         charactersHtml(characters)
     }
     else {

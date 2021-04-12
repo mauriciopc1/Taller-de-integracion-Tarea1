@@ -49,7 +49,7 @@ const showEpisodes = async episodes => {
     var seasonEpisodesHtml = ``;
     Object.entries(season_json).forEach(([key, value]) => {
         seasonEpisodesHtml += `
-        <div class="seasons__season-title">
+        <div id="${key}" class="seasons__season-title">
             <a class="seasons__season-title-link">Season ${key}</a>
         </div>
         `
@@ -61,12 +61,20 @@ const showEpisodes = async episodes => {
     seasons.innerHTML = seasonEpisodesHtml;
 };
 
+const openSeason = seasonString => {
+    const seasonDiv = document.getElementById(`${seasonString}`);
+    seasonDiv.classList.toggle("seasons__season-title--ative");
+    var content = seasonDiv.nextElementSibling;
+    if (content.style.maxHeight) {
+    content.style.maxHeight = null;
+    } else {
+    content.style.maxHeight = content.scrollHeight + "px";
+    }
+};
+
 const collapseSeasons = () => {
     var season = document.getElementsByClassName("seasons__season-title");
     var i;
-
-    console.log(season);
-
     for (i = 0; i < season.length; i++) {
     season[i].addEventListener("click", function() {
         this.classList.toggle("seasons__season-title--ative");
@@ -83,12 +91,18 @@ const collapseSeasons = () => {
 const clickBreakingBad = async () => {
     if (!bbOpen) {
         bbOpen = true;
+        if (bcsOpen === true) {
+            betterCallSaul.classList.toggle("shows-section__show-container--active");
+        }
         bcsOpen = false;
+        breakingBad.classList.toggle("shows-section__show-container--active");
         const episodes = await getEpisodes(`Breaking+Bad`);
         showEpisodes(episodes);
+        collapseSeasons();
     }
     else {
         bbOpen = false;
+        breakingBad.classList.toggle("shows-section__show-container--active");
         seasons.innerHTML = '';
     }
 }
@@ -96,13 +110,18 @@ const clickBreakingBad = async () => {
 const clickBetterCallSaul = async () => {
     if (!bcsOpen) {
         bcsOpen = true;
+        if (bbOpen === true) {
+            breakingBad.classList.toggle("shows-section__show-container--active");
+        }
         bbOpen = false;
+        betterCallSaul.classList.toggle("shows-section__show-container--active");
         const episodes = await getEpisodes("Better+Call+Saul");
         showEpisodes(episodes);
         collapseSeasons();
     }
     else {
         bcsOpen = false
+        betterCallSaul.classList.toggle("shows-section__show-container--active");
         seasons.innerHTML = '';
     }
 }
@@ -110,12 +129,17 @@ const clickBetterCallSaul = async () => {
 betterCallSaul.addEventListener('click', clickBetterCallSaul);
 breakingBad.addEventListener('click', clickBreakingBad);
 
-if (serie && season) {
-    if (serie == "better-call-saul") {
-        clickBetterCallSaul();
-    }
-    else if (serie == "breaking-bad") {
-        clickBreakingBad();
-
+const selectSeason = async () => {
+    if (serie && season) {
+        if (serie == "better-call-saul") {
+            await clickBetterCallSaul();
+            openSeason(season);
+        }
+        else if (serie == "breaking-bad") {
+            await clickBreakingBad();
+            openSeason(season);
+        }
     }
 }
+
+selectSeason();

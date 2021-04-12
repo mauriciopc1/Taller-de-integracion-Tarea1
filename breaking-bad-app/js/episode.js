@@ -40,8 +40,8 @@ const characterFormat = async characters => {
     if (characters.length > 0) {
         const html = characters.map(
             async character => `
-            <div class="search-bar__list-element">
-                <a class="search-bar__link" href="character.html?id=${await getCharacterId(character)}"> ${character} <a>
+            <div class="episode-info__character-list">
+                <a class="episode-info__link" href="character.html?id=${await getCharacterId(character)}"> ${character} <a>
             </div>
             `
         );

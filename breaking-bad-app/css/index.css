@@ -5,6 +5,11 @@
     height: 35vh;
 }
 
+.shows-section__show-container--active {
+    background-color: #777;
+    border-radius: 20px;
+}
+
 .shows-section__show-container {
     width: 50vw;
     height: 100%;

@@ -1,0 +1,57 @@
+.character-info__container {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    margin-left: 30%;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+}
+
+.character-info__profile {
+    align-self: center;
+    margin-top: 15px;
+    width: 55%;
+}
+
+.character-info__picture {
+
+}
+
+.character-info__picture img {
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.character-info__name {
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+}
+
+.character-info__details {
+    margin-left: 15px;
+}
+
+.character-info__detail {
+    display: flex;
+}
+
+.character-info__detail-label {
+    font-weight: bold;
+}
+
+.character-info__quotes-label {
+    font-weight: bold;
+}
+
+.character-info__detail-data {
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.character-info__link {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
