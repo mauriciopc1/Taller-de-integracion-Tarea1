@@ -5,6 +5,7 @@ body {
 .shows-section__container {
     display: flex;
     width: 100vw;
+    height: 50vh;
 }
 
 .shows-section__show-container {

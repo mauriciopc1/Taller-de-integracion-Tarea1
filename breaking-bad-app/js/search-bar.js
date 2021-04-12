@@ -1,8 +1,7 @@
 const searchInput = document.getElementById("search");
 const matchList = document.getElementById("match-list");
 
-// funcion extraida de stackoverflow 
-// https://stackoverflow.com/questions/22607150/getting-the-url-parameters-inside-the-html-page
+// funcion extraida de https://www.learningjquery.com/2012/06/get-url-parameters-using-jquery
 function GetURLParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);
