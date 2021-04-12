@@ -1,24 +1,91 @@
-body {
-    margin: 0%;
-}
-
 .shows-section__container {
     display: flex;
     width: 100vw;
-    height: 50vh;
+    max-width: 100%;
+    height: 35vh;
 }
 
 .shows-section__show-container {
     width: 50vw;
-    height: 100vh;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .shows-section__show-container img {
-    max-width: 80%;
+    max-width: 70%;
     height: auto;
+    border-radius: 20px;
+    align-self: center;
+    cursor: pointer;
 }
 
 .shows-section__show-cover {
     max-width: 50%;
     height: auto;
+    margin: auto;
+}
+
+.seasons__container {
+    margin-top: 30px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seasons__season-title {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.seasons__season-title--ative, .seasons__season-title:hover {
+    background-color: #555;
+}
+
+.seasons__season-title-link {
+    color: blacwhitek;
+    text-decoration: none;
+}
+
+.seasons__episode-link {
+    color: black;
+    text-decoration: none;    
+}
+
+.seasons__episode-link:hover {
+    color: white;
+    text-decoration: none;    
+}
+
+.seasons__episodes-container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.seasons__episode-container {
+    background-color: white;
+    color: white;
+    cursor: pointer;
+    padding: 8px 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.seasons__episode-container:hover {
+    background-color: #777;
 }

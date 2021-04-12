@@ -53,10 +53,32 @@ const showEpisodes = async episodes => {
             <a class="seasons__season-title-link">Season ${key}</a>
         </div>
         `
+        seasonEpisodesHtml += `<div class="seasons__episodes-container">`;
         seasonEpisodesHtml += seasonHtml(value);
+        seasonEpisodesHtml += `</div>`;
+
     });
     seasons.innerHTML = seasonEpisodesHtml;
 };
+
+const collapseSeasons = () => {
+    var season = document.getElementsByClassName("seasons__season-title");
+    var i;
+
+    console.log(season);
+
+    for (i = 0; i < season.length; i++) {
+    season[i].addEventListener("click", function() {
+        this.classList.toggle("seasons__season-title--ative");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+    }
+}
 
 const clickBreakingBad = async () => {
     if (!bbOpen) {
@@ -77,6 +99,7 @@ const clickBetterCallSaul = async () => {
         bbOpen = false;
         const episodes = await getEpisodes("Better+Call+Saul");
         showEpisodes(episodes);
+        collapseSeasons();
     }
     else {
         bcsOpen = false
